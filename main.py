@@ -18,7 +18,7 @@ class KeyGenerator:
     def __init__(self):
         self.rng = secrets.SystemRandom()
 
-    def generate_RSAkeys(bits, pub_e=65537):
+    def generate_RSAkeys(self, bits, pub_e=65537):
         self.pub_e = pub_e
         if bits > 1024:
             raise NotImplementedError(
