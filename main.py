@@ -45,7 +45,7 @@ class KeyGenerator:
     self.key_map =  {"public key" : self.pub_key,"pub_e" : self.pub_e, "private key": self.priv_key}
     return self.key_map
 
-  def Derive_SecretKey(encrypted_skey):
+  def Derive_SecretKey(self, encrypted_skey):
     """This function derives a key from a encrypted key given
     by using the Encrypt_SecretKey() method."""
 
@@ -54,18 +54,18 @@ class KeyGenerator:
     keymap.update({"secret key" : self.skey})
     return SecretKey
     
-  def GetHexValues(values="all"):
+  def GetHexValues(self, values="all"):
     """Gets the hexidecimal values of the keys
     default value is all values, but can be changed
     to the key values."""
-    if values = "all":
+    if values == "all":
       hex_keymap = {}
       for i in self.keymap:
         hex_keymap.update({i, self.keymap[i]})
       self.hexkeys = hex_keymap
       return hex_keymap
       
-  def Encrypt_SecretKey(bits):
+  def Encrypt_SecretKey(self, bits):
     """Generates a secret key for using in exchange.
     Since this value is special and isn't saved as a
     class variable, it automatically presents the hex
