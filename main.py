@@ -18,19 +18,19 @@ class KeyGenerator:
     def __init__(self):
         self.rng = secrets.SystemRandom()
 
-    def generate_RSAkeys(bits, pub_e=65537):
-        self.pub_e = pub_e
+    def generate_RSAkeys(bits, pub_e: int = 65537) -> dict:
+        self.pub_e = pub_e  # Public key exponent
         if bits > 1024:
             raise NotImplementedError(
-                "Prime Numbers cannot currently be over 1024 Bits"
+                "Prime numbers cannot currently be over 1024 bits"
             )
-        self.p1 = GetRandPrime(bits)
-        self.p2 = GetRandPrime(bits)
+        prime1 = GetRandPrime(bits)
+        prime2 = GetRandPrime(bits)
         self.pub_key = p1 * p2
         # Key Creation
-        self.phi_pubkey = (p1 - 1) * (p2 - 1)
+        self.phi_pubkey = (prime1 - 1) * (prime2 - 1)
 
-        self.priv_key = pow(self.pub_e, -1, self.phi_pubkey)
+        self.priv_key = pow(self.pub_key, -1, self.phi_pubkey)
 
         """
     Calculates the modular
@@ -40,7 +40,7 @@ class KeyGenerator:
     be making a Python 3
     general version in this
     repository soon.
-    """
+        """
 
         # Map of keys to not confuse keys
         self.key_map = {
