@@ -26,9 +26,9 @@ class KeyGenerator:
             )
         self.p1 = GetRandPrime(bits)
         self.p2 = GetRandPrime(bits)
-        self.pub_key = p1 * p2
+        self.pub_key = self.p1 * self.p2
         # Key Creation
-        self.phi_pubkey = (p1 - 1) * (p2 - 1)
+        self.phi_pubkey = (self.p1 - 1) * (self.p2 - 1)
 
         self.priv_key = pow(self.pub_e, -1, self.phi_pubkey)
 
@@ -43,7 +43,7 @@ class KeyGenerator:
     """
 
         # Map of keys to not confuse keys
-        self.key_map = {
+        self.keymap = {
             "public key": self.pub_key,
             "pub_e": self.pub_e,
             "private key": self.priv_key,
@@ -58,18 +58,18 @@ class KeyGenerator:
         self.skey = SecretKey
         keymap.update({"secret key": self.skey})
         return SecretKey
-
+       
     def GetHexValues(self, values="all"):
         """Gets the hexidecimal values of the keys
         default value is all values, but can be changed
         to the key values."""
         if values == "all":
-            hex_keymap = {}
+            byte_keymap = {}
             for i in self.keymap:
-                hex_keymap.update({i, self.keymap[i]})
-            self.hexkeys = hex_keymap
-            return hex_keymap
-
+                byte_keymap.update({i, (intkey := self.keymap[i]).to_bytes(len(bin(intkey))//8, 'big')})
+            self.bytekeys = byte_keymap
+            return byte_keymap
+        
     def Encrypt_SecretKey(self, bits):
         """Generates a secret key for using in exchange.
         Since this value is special and isn't saved as a
