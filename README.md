@@ -15,7 +15,7 @@ but the **basic** description is as follows:
 >- Calculate the Euler's Totient Function of your public key.
 >- Create a private key by calculating the modular-inverse of a number that is co-prime to the totient of your public key, and the totient of your public key.
 
-## IMPORTANT
+## ** IMPORTANT **
 
 This is not a fully-secure version of RSA.
 
