@@ -42,12 +42,8 @@ class KeyGenerator:
     """
 
     # Map of keys to not confuse keys
-    self.key_map = \
-    {"public key" : self.pub_key,
-     "pub_e" : self.pub_e,
-     "private key": self.priv_key}
-
-     return self.key_map
+    self.key_map =  {"public key" : self.pub_key,"pub_e" : self.pub_e, "private key": self.priv_key}
+    return self.key_map
 
   def Derive_SecretKey(encrypted_skey):
     """This function derives a key from a encrypted key given
