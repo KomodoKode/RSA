@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
 The Key Generation for this implementation of RSA
 
@@ -24,7 +26,7 @@ class KeyGenerator:
     self.p1 = GetRandPrime(bits)
     self.p2 = GetRandPrime(bits)
     self.pub_key = p1 * p2
-    #Key Creation
+    # Key Creation
     self.phi_pubkey = (p1 - 1) * (p2 - 1)
 
     self.priv_key = pow(self.pub_e, -1, self.phi_pubkey)
@@ -39,8 +41,8 @@ class KeyGenerator:
     repository soon.
     """
 
-    #Map of keys to not confuse keys
-    self.key_map = 
+    # Map of keys to not confuse keys
+    self.key_map = \
     {"public key" : self.pub_key,
      "pub_e" : self.pub_e,
      "private key": self.priv_key}
