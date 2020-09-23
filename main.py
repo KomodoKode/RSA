@@ -85,13 +85,10 @@ class KeyGenerator:
             hex_keymap = {}
             for i in self.keymap:
                 hex_keymap.update
-                (
-                    {
-                        i, hex(self.keymap[i])
-                    }
-                )
+                ({i, hex(self.keymap[i])})
             self.hexkeys = hex_keymap
             return hex_keymap
+
     def Encrypt_SecretKey(self, bits):
         """Generates a secret key for using in exchange.
         Since this value is special and isn't saved as a
