@@ -57,7 +57,7 @@ class KeyGenerator:
   def GetHexValues(values="all"):
     """Gets the hexidecimal values of the keys
     default value is all values, but can be changed
-    to the key values"""
+    to the key values."""
     if values = "all":
       hex_keymap = {}
       for i in self.keymap:
@@ -69,8 +69,8 @@ class KeyGenerator:
     """Generates a secret key for using in exchange.
     Since this value is special and isn't saved as a
     class variable, it automatically presents the hex
-    value of the key"""
-    secretkey = elf.rng.getrandbits(bits)
+    value of the key."""
+    secretkey = self.rng.getrandbits(bits)
     return secretkey, hex(secretkey)
 
 
