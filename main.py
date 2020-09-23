@@ -58,7 +58,7 @@ class KeyGenerator:
         self.skey = SecretKey
         keymap.update({"secret key": self.skey})
         return SecretKey
-       
+
     def GetHexValues(self, values="all"):
         """Gets the hexidecimal values of the keys
         default value is all values, but can be changed
@@ -66,10 +66,17 @@ class KeyGenerator:
         if values == "all":
             byte_keymap = {}
             for i in self.keymap:
-                byte_keymap.update({i, (intkey := self.keymap[i]).to_bytes(len(bin(intkey))//8, 'big')})
+                byte_keymap.update(
+                    {
+                        i,
+                        (intkey := self.keymap[i]).to_bytes(
+                            len(bin(intkey)) // 8, "big"
+                        ),
+                    }
+                )
             self.bytekeys = byte_keymap
             return byte_keymap
-        
+
     def Encrypt_SecretKey(self, bits):
         """Generates a secret key for using in exchange.
         Since this value is special and isn't saved as a
