@@ -8,7 +8,9 @@ send private messages between two or more individuals.
 """
 
 import secrets
+
 from Primes import GetRandPrime
+
 
 class KeyGenerator:
   

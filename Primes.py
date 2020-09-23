@@ -5,8 +5,8 @@ in a reasonable amount of time. Hoping to improve
 this using the Python Threads module
 """
 
-from math import gcd
 import secrets
+from math import gcd
 
 rng = secrets.SystemRandom()
 """Gets the Random Number Generator
