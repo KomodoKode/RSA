@@ -93,6 +93,7 @@ class KeyGenerator:
         """Generates a secret key for using in exchange.
         Since this value is special and isn't saved as a
         class variable, it automatically presents the hex
-        value of the key."""
+        and byte values of the key."""
         secretkey = self.rng.getrandbits(bits)
-        return secretkey, hex(secretkey)
+        return secretkey, hex(secretkey), secretkey.to_bytes((len(bin(secretkey)) - 2)//8, "big"
+
