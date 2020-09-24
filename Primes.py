@@ -1,4 +1,3 @@
-
 """
 Generates the prime numbers necessary for
 RSA. This can only do numbers of up to 1024 Bits
@@ -70,4 +69,3 @@ def GetRandPrime(numbits: int) -> int:
                 return trialnum
             else:
                 trialset.add(trialnum)
-          
