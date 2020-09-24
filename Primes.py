@@ -80,11 +80,11 @@ def RabinMiller_prime(n: int) -> bool:
 
 
 def get_basic_test(num: int) -> bool:
-    for i in base_primes :
+    for i in base_primes:
         if num % i == 0:
             return False
     return True
-            
+
 
 def GetRandPrime(numbits: int) -> int:
     """Not 100% guaranteed to work,
@@ -98,4 +98,3 @@ def GetRandPrime(numbits: int) -> int:
                 return trialnum
             else:
                 trialset.add(trialnum)
-        
