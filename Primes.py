@@ -70,8 +70,7 @@ def GetRandPrime(numbits: int) -> int:
             else:
                 trialset.add(trialnum)
 
-               
-            
+
 """
  Original Code Adapted From :
  
