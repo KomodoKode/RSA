@@ -33,92 +33,7 @@ base_primes = [
     61,
     67,
     71,
-    73,
-    79,
-    83,
-    89,
-    97,
-    101,
-    103,
-    107,
-    109,
-    113,
-    127,
-    131,
-    137,
-    139,
-    149,
-    151,
-    157,
-    163,
-    167,
-    173,
-    179,
-    181,
-    191,
-    193,
-    197,
-    199,
-    211,
-    223,
-    227,
-    229,
-    233,
-    239,
-    241,
-    251,
-    257,
-    263,
-    269,
-    271,
-    277,
-    281,
-    283,
-    293,
-    307,
-    311,
-    313,
-    317,
-    331,
-    337,
-    347,
-    349,
-    353,
-    359,
-    367,
-    373,
-    379,
-    383,
-    389,
-    397,
-    401,
-    409,
-    419,
-    421,
-    431,
-    433,
-    439,
-    443,
-    449,
-    457,
-    461,
-    463,
-    467,
-    479,
-    487,
-    491,
-    499,
-    503,
-    509,
-    521,
-    523,
-    541,
 ]
-
-
-def bitrandom(n: int):
-    return secrets.randbits(n - 1)
-
 
 # Test to see if p1 & p2 are prime using Fermat's Theorem
 def Fermat_prime(integer: int) -> bool:
@@ -164,26 +79,23 @@ def RabinMiller_prime(n: int) -> bool:
     return True
 
 
-def GetBasicPrime(bits: int) -> int:
-    testedset = set()
-    while True:
-        testnum = bitrandom(bits)
-        if testnum not in testedset:
-            for i in base_primes:
-                if testnum % i == 0:
-                    testedset.add(testnum)
-            return testnum
-
+def get_basic_test(num: int) -> bool:
+    for i in base_primes :
+        if num % i == 0:
+            return False
+    return True
+            
 
 def GetRandPrime(numbits: int) -> int:
     """Not 100% guaranteed to work,
     but highly likely to give true prime"""
     trialset = set()
     while True:
-        trialnum = GetBasicPrime(numbits)
+        trialnum = secrets.getrandbits(numbits)
         if trialnum not in trialset:
             # Prime tests number using Fermat's Primality Test
             if RabinMiller_prime(trialnum) == True:
                 return trialnum
             else:
                 trialset.add(trialnum)
+        
