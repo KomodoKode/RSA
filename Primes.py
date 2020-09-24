@@ -10,7 +10,7 @@ from math import gcd
 
 rng = secrets.SystemRandom()
 """Gets the Random Number Generator
-to generate probabilistic test numbers"""
+to generate probabilistic test numbers."""
 
 
 # Test to see if p1 & p2 are prime using Fermat's Theorem
