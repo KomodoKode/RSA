@@ -92,9 +92,12 @@ def GetRandPrime(numbits: int) -> int:
     trialset = set()
     while True:
         trialnum = secrets.getrandbits(numbits)
-        if trialnum not in trialset:
-            # Prime tests number using Rabin-Miller Primality Test
-            if RabinMiller_prime(trialnum) == True:
-                return trialnum
-            else:
+        if get_basic_test(trialnum) == True:
+            if trialnum not in trialset:
+                # Prime tests number using Rabin-Miller Primality Test
+                if RabinMiller_prime(trialnum) == True:
+                    return trialnum
+                else:
                 trialset.add(trialnum)
+        else:
+            trialset.add(trialnum)
