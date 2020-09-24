@@ -72,7 +72,7 @@ def GetRandPrime(numbits: int) -> int:
 
 
 """
- Original Code Adapted From :
+ Code Partly Adapted From :
  
  https://www.geeksforgeeks.org/how-to-generate-large-prime-numbers-for-rsa-algorithm/
  
