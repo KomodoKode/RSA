@@ -93,7 +93,7 @@ def GetRandPrime(numbits: int) -> int:
     while True:
         trialnum = secrets.getrandbits(numbits)
         if trialnum not in trialset:
-            # Prime tests number using Fermat's Primality Test
+            # Prime tests number using Rabin-Miller Primality Test
             if RabinMiller_prime(trialnum) == True:
                 return trialnum
             else:
