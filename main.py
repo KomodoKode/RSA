@@ -32,7 +32,6 @@ class KeyGenerator(object):
 
         self.priv_key = pow(self.pub_e, -1, self.phi_pubkey)
 
-
         # Calculates the modular
         # inverse of e and phi_n.
         # This feature is only in
@@ -40,7 +39,6 @@ class KeyGenerator(object):
         # be making a Python 3
         # general version in this
         # repository soon.
-
 
         # Map of keys to not confuse keys
         self.keymap = {
