@@ -95,5 +95,8 @@ class KeyGenerator(object):
         class variable, it automatically presents the hex
         and byte values of the key."""
         secretkey = self.rng.getrandbits(bits)
-        return secretkey, hex(secretkey), secretkey.to_bytes((len(bin(secretkey)) - 2)//8, "big")
-
+        return (
+            secretkey,
+            hex(secretkey),
+            secretkey.to_bytes((len(bin(secretkey)) - 2) // 8, "big"),
+        )
