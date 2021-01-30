@@ -31,4 +31,4 @@ jobs:
 
       # The fun stuff
       - name: Blacken
-        run: python3 -m black-primer
+        run: python3 -m black . --check
